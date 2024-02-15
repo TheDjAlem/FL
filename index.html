@@ -3,11 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Online Piano Roll</title>
+    <title>FL Studio Style Piano Roll</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <div id="piano-roll"></div>
+    <div id="piano-roll">
+        <div class="header">
+            <div class="note-header">Note</div>
+            <div class="beat-header">1</div>
+            <!-- Add more beat headers as needed -->
+        </div>
+        <div class="keys">
+            <!-- Piano keys will be generated here -->
+        </div>
+    </div>
     <audio id="audio"></audio>
     <script src="script.js"></script>
 </body>
