@@ -1,0 +1,11 @@
+#piano-roll {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.key {
+    width: 50px;
+    height: 200px;
+    border: 1px solid black;
+    cursor: pointer;
+}
