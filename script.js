@@ -16,10 +16,23 @@ const keys = [
 keys.forEach(key => {
     const keyElement = document.createElement('div');
     keyElement.classList.add('key');
-    keyElement.textContent = key.note;
-    keyElement.addEventListener('click', () => playSound(key.frequency));
-    pianoRoll.appendChild(keyElement);
+    keyElement.setAttribute('data-frequency', key.frequency);
+    keyElement.addEventListener('click', () => toggleNoteAtCurrentBeat(keyElement));
+    pianoRoll.querySelector('.keys').appendChild(keyElement);
 });
+
+// Toggle note at the current beat
+function toggleNoteAtCurrentBeat(keyElement) {
+    const currentBeat = getCurrentBeat();
+    const noteElement = document.createElement('div');
+    noteElement.classList.add('note');
+    noteElement.style.width = `${50}px`; // Adjust note width as needed
+    keyElement.appendChild(noteElement);
+    
+    // Play the sound
+    const frequency = parseFloat(keyElement.getAttribute('data-frequency'));
+    playSound(frequency);
+}
 
 // Function to play sound
 function playSound(frequency) {
@@ -30,4 +43,9 @@ function playSound(frequency) {
     oscillator.connect(context.destination);
     oscillator.start();
     setTimeout(() => oscillator.stop(), 500); // Stop after 0.5 seconds
+}
+
+// Get the current beat (for demonstration purpose, returns 1)
+function getCurrentBeat() {
+    return 1;
 }
