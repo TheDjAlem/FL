@@ -1,11 +1,46 @@
+body {
+    font-family: Arial, sans-serif;
+}
+
 #piano-roll {
+    border: 1px solid #333;
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+.header {
     display: flex;
-    flex-wrap: wrap;
+    background-color: #eee;
+    border-bottom: 1px solid #ccc;
+}
+
+.note-header, .beat-header {
+    flex: 1;
+    padding: 10px;
+    text-align: center;
+}
+
+.keys {
+    display: flex;
 }
 
 .key {
     width: 50px;
     height: 200px;
-    border: 1px solid black;
-    cursor: pointer;
+    border-left: 1px solid #ccc;
+    border-right: 1px solid #ccc;
+    position: relative;
+}
+
+.key:last-child {
+    border-right: none;
+}
+
+.note {
+    background-color: #F7C943;
+    height: 50px;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
 }
